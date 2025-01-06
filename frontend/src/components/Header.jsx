@@ -1,15 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { BsCart3 } from "react-icons/bs";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { IoIosNotificationsOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, reset } from "../store/auth/authSlice";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useLocation } from "react-router-dom";
-import { IoIosNotificationsOutline } from "react-icons/io";
-import { getNotificationForUser } from "../store/notification/notificationSlice";
 import socket from "../socket";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { BsCart3 } from "react-icons/bs";
+import { logout, reset } from "../store/auth/authSlice";
+import { getNotificationForUser } from "../store/notification/notificationSlice";
 const Header = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -28,13 +27,13 @@ const Header = () => {
   );
   //console.log(unReadNotifications.length, "unreadnotificatons........ length");
 
-  useEffect(() => {}, [user]);
+  useEffect(() => { }, [user]);
   useEffect(() => {
     if (logInUser) {
       dispatch(getNotificationForUser());
     }
     socket.on("newBidNotification", (data) => {
-      
+
       socket.emit("joinAuction", logInUser?._id);
 
       dispatch(getNotificationForUser());
@@ -56,12 +55,12 @@ const Header = () => {
       <div className="flex items-center px-1 z-[1]">
         <Link to="/dashboard" className=" no-underline ">
           <h1 className="text-3xl font-bold text-white font-Roboto">
-            <span className="uppercase text-theme-color">B</span>id
-            <span className="uppercase text-theme-color">F</span>air
+            <span className="uppercase text-theme-color">A</span>uction
+            <span className="uppercase text-theme-color"> A</span>venue
           </h1>
         </Link>
       </div>
-      <div className="hidden sm:block">
+      {/* <div className="hidden sm:block">
         <Link
           to="/"
           className="text-white font-Roboto text-lg mx-3 hover:text-color-primary transition-all "
@@ -81,7 +80,7 @@ const Header = () => {
         >
           About
         </Link>
-      </div>
+      </div> */}
       <div className="flex items-center cursor-pointer z-[1]">
         {user ? (
           <div className="flex justify-center items-center">
@@ -137,9 +136,8 @@ const Header = () => {
 
       {user && sidebarOpen ? (
         <div
-          className={`${
-            sidebarOpen ? "animate-fadein" : "hidden"
-          } rounded-xl origin-top-right overflow-hidden absolute right-12 top-16 mt-[4px] bg-body-bg z-50   w-[250px]`}
+          className={`${sidebarOpen ? "animate-fadein" : "hidden"
+            } rounded-xl origin-top-right overflow-hidden absolute right-12 top-16 mt-[4px] bg-body-bg z-50   w-[250px]`}
         >
           <nav className="pt-2 [&_a]:transition-all [&_a]:duration-100">
             <Link

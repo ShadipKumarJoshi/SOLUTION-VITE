@@ -18,8 +18,8 @@ const Footer = () => {
             className="flex items-center mb-4 sm:mb-0 space-x-3 no-underline"
           >
             <h1 className="text-3xl font-bold text-white font-Roboto">
-              <span className="uppercase text-theme-color">B</span>id
-              <span className="uppercase text-theme-color">F</span>air
+              <span className="uppercase text-theme-color">A</span>uction
+              <span className="uppercase text-theme-color"> A</span>venue
             </h1>
           </Link>
           <ul className="flex flex-wrap items-center text-sm font-medium text-white list-none">

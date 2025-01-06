@@ -1,67 +1,67 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom";
 
-import { useEffect, useState } from "react"
-import { toast } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { reset, resetNewPassword } from "../../store/auth/authSlice";
 
 
 
 const ResetNewPassword = () => {
-    const { id, token } = useParams();
-    const [password, setPassword] = useState("");
-    const dispatch = useDispatch();
-    const {isSuccess, isError, message} = useSelector((state) => state.auth);
-    const navigate= useNavigate()
+  const { id, token } = useParams();
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const { isSuccess, isError, message } = useSelector((state) => state.auth);
+  const navigate = useNavigate()
 
 
-    useEffect(() => {
-        if (isSuccess) {
-            toast.success(message);
-            setPassword("");
-            navigate("/login");
-
-        }
-        if (isError) {
-            toast.error(message);
-        }
-
-        return () => {
-            dispatch(reset());
-        }
-
-    }, [isSuccess, isError]);
-
-
-
-    const resetnewPassword = (e) => {
-        e.preventDefault();
-
-        if (password === "") {
-            toast.error("Password is required");
-            return false;
-        } 
-        
-        let data = {
-            password: password,
-             id,
-             token,
-        };
-
-        dispatch(resetNewPassword(data));
-       
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success(message);
+      setPassword("");
+      navigate("/login");
 
     }
+    if (isError) {
+      toast.error(message);
+    }
+
+    return () => {
+      dispatch(reset());
+    }
+
+  }, [isSuccess, isError]);
+
+
+
+  const resetnewPassword = (e) => {
+    e.preventDefault();
+
+    if (password === "") {
+      toast.error("Password is required");
+      return false;
+    }
+
+    let data = {
+      password: password,
+      id,
+      token,
+    };
+
+    dispatch(resetNewPassword(data));
+
+
+  }
 
 
 
   return (
- <div className="flex h-screen w-full items-center justify-center bg-[#061224] text-[#7386a8]">
+    <div className="flex h-screen w-full items-center justify-center bg-[#061224] text-[#7386a8]">
       <div className="flex w-[90%] flex-col items-center rounded-xl bg-[#071B36] py-8 sm:w-2/5 sm:px-6">
         <h1 className="text-3xl font-bold text-white">
-          <span className="uppercase text-[#00A3FF]">B</span>id
-          <span className="uppercase text-[#00A3FF]">F</span>air
+          <span className="uppercase text-[#00A3FF]">A</span>uction
+          <span className="uppercase text-[#00A3FF]">A</span>venue
         </h1>
         <p className="my-3 h-[1px] w-[80%] bg-[#747d9340]"></p>
         <form
@@ -76,7 +76,7 @@ const ResetNewPassword = () => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            
+
             required
           />
 
@@ -88,7 +88,7 @@ const ResetNewPassword = () => {
           </button>
         </form>
       </div>
-    </div>  )
+    </div>)
 }
 
 export default ResetNewPassword
