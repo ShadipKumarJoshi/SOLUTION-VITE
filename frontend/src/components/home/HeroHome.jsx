@@ -2,11 +2,13 @@ import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
 import herovector from "../../assets/heroimg.png";
 import { RiFindReplaceLine } from "react-icons/ri";
+import auctionGif from '../../assets/auction.gif';
+
 const HeroHome = () => {
   const logInUser = JSON.parse(localStorage.getItem("user"));
   return (
     <>
-      <div className="lg:h-[85vh] py-20 p-5 lg:px-12 flex items-center justify-center flex-wrap lg:flex-nowrap gap-5 text-white">
+      {/* <div className="lg:h-[50vh] py-20 p-5 lg:px-12 flex items-center justify-center flex-wrap lg:flex-nowrap gap-5 text-white">
         <div className="block overflow-hidden">
           <div className="w-[300px] h-[300px] bg-[#5161F9] rounded-full blur-[150px] absolute left-[-50px] top-[-80px]"></div>
           <div className="w-[200px] h-[200px] bg-[#09a4f1] rounded-full blur-[150px] absolute left-[45%] top-[100px]"></div>
@@ -14,8 +16,8 @@ const HeroHome = () => {
         </div>
 
         <div className="w-full flex flex-col gap-4 z-[1]  ">
-          <h3 className="tracking-wider">DISCOVER, COLLECT AND SELL</h3>
-          <h1 className="text-5xl font-bold">
+          <h3 className="tracking-wider text-5xl font-bold" >DISCOVER, COLLECT AND SELL</h3>
+          <h1 className="text-2xl font-bold">
             Discover Rare Products And Bid in Real-Time
           </h1>
           <p>
@@ -47,7 +49,17 @@ const HeroHome = () => {
         <div className="w-full lg:p-20 animate-float ">
           <img src={herovector} alt="Hero-img" />
         </div>
+       <div className="w-full lg:p-20 animate-fixed">
+      <div className="relative w-full" style={{ paddingBottom: '54%' }}>
+        <img
+          src={auctionGif}
+          alt="Auction Animation"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
       </div>
+    </div>
+        
+      </div> */}
     </>
   );
 };

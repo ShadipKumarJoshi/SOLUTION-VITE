@@ -118,12 +118,21 @@ const Header = () => {
           </div>
         ) : (
           <>
-            <Link
-              to="/login"
-              className="bg-blue-500 no-underline font-Roboto text-base  hover:bg-color-danger transition-all duration-150 text-white py-1 sm:py-2 sm:px-3 px-2 rounded-md text-md font-semibold"
-            >
-              Sign In
-            </Link>
+          <div className="flex gap-2">
+  <Link
+    to="/register"
+    className="bg-green-500 hover:bg-green-600 text-white font-Roboto text-sm sm:text-base py-1 sm:py-2 px-3 rounded-md transition duration-150 font-semibold no-underline"
+  >
+    Sign Up
+  </Link>
+  <Link
+    to="/login"
+    className="bg-blue-500 hover:bg-blue-600 text-white font-Roboto text-sm sm:text-base py-1 sm:py-2 px-3 rounded-md transition duration-150 font-semibold no-underline"
+  >
+    Sign In
+  </Link>
+</div>
+
             <Link
               onClick={() => setNavbarOpen(!navbarOpen)}
               className="text-white font-Roboto sm:hidden text-lg mx-3 order-3 z-50"
