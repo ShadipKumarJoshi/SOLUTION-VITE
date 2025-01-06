@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import CountDownTimer from "../components/CountDownTimer";
 import { useState } from "react";
 import { RiShoppingBagFill } from "react-icons/ri";
-import { BsCurrencyDollar } from "react-icons/bs";
+import { BsCurrencyRupee } from "react-icons/bs";
 import socket from "../socket";
 // eslint-disable-next-line react/prop-types
 const SingleAuction = ({
@@ -82,7 +82,7 @@ const SingleAuction = ({
           <div className="flex justify-between item-center my-2 border-t border-border-info-color py-1">
             <div className="flex flex-col ">
               <p className="text-[12px]">Current Bid</p>
-              <p className="mt-2">$ {startingPrice}</p>
+              <p className="mt-2">Rs {startingPrice}</p>
             </div>
             <Link
               to={`/single-auction-detail/${id}`}
@@ -94,11 +94,11 @@ const SingleAuction = ({
             }`}
             >
               {" "}
-              <BsCurrencyDollar
+              {/* <BsCurrencyRupee
                 size={18}
                 strokeWidth={0.4}
                 className="mt-[-2px]"
-              />
+              /> */}
               <span>Place Bid</span>
             </Link>
           </div>
